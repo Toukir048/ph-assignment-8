@@ -6,9 +6,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { CheckCircle2, Clock, Signal, Star } from "lucide-react";
 import { useAuth } from "@/components/AuthProvider";
-import type { Course } from "@/data/courses";
 
-export function CourseDetailsClient({ course }: { course: Course }) {
+export function CourseDetailsClient({ course }) {
   const { user, loading } = useAuth();
   const router = useRouter();
   const pathname = usePathname();

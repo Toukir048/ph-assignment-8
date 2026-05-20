@@ -3,28 +3,15 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { authClient } from "@/lib/auth-client";
 
-export type AppUser = {
-  name: string;
-  email: string;
-  image?: string | null;
-};
-
-type AuthContextValue = {
-  user: AppUser | null;
-  loading: boolean;
-  refreshSession: () => Promise<void>;
-  setFallbackUser: (user: AppUser | null) => void;
-};
-
-const AuthContext = createContext<AuthContextValue | null>(null);
+const AuthContext = createContext(null);
 
 const fallbackKey = "skillsphere-demo-user";
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<AppUser | null>(null);
+export function AuthProvider({ children }) {
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const setFallbackUser = (nextUser: AppUser | null) => {
+  const setFallbackUser = (nextUser) => {
     setUser(nextUser);
     if (typeof window === "undefined") return;
     if (nextUser) {

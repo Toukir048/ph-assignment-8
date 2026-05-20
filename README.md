@@ -10,7 +10,7 @@ Add your deployed link here after hosting:
 
 ## Key Features
 
-- Responsive Next.js App Router layout with persistent navbar and footer.
+- JSX-based responsive Next.js App Router layout with persistent navbar and footer.
 - Home page hero, popular courses, learning tips, trending courses, and top instructors.
 - All Courses page with title-based search.
 - Protected course details pages with curriculum lists and login redirect.
@@ -31,7 +31,7 @@ Add your deployed link here after hosting:
 - `sonner`
 - `lucide-react`
 - `animate.css`
-- `framer-motion`
+- `animate.css`
 
 ## Environment Variables
 

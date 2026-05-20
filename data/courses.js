@@ -1,17 +1,4 @@
-export type Course = {
-  id: number;
-  title: string;
-  instructor: string;
-  duration: string;
-  rating: number;
-  level: "Beginner" | "Intermediate" | "Advanced";
-  description: string;
-  image: string;
-  category: string;
-  lessons: string[];
-};
-
-export const courses: Course[] = [
+export const courses = [
   {
     id: 1,
     title: "Complete Web Development Bootcamp",

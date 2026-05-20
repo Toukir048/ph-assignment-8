@@ -1,9 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Star } from "lucide-react";
-import type { Course } from "@/data/courses";
 
-export function CourseCard({ course }: { course: Course }) {
+export function CourseCard({ course }) {
   return (
     <article className="group overflow-hidden rounded-lg border border-black/10 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
       <div className="relative aspect-[4/3] overflow-hidden">

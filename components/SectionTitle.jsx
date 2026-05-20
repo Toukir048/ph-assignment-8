@@ -2,10 +2,6 @@ export function SectionTitle({
   eyebrow,
   title,
   text
-}: {
-  eyebrow: string;
-  title: string;
-  text?: string;
 }) {
   return (
     <div className="mx-auto mb-8 max-w-2xl text-center">

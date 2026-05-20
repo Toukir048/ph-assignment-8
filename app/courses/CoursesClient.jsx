@@ -3,9 +3,8 @@
 import { useMemo, useState } from "react";
 import { Search } from "lucide-react";
 import { CourseCard } from "@/components/CourseCard";
-import type { Course } from "@/data/courses";
 
-export function CoursesClient({ courses }: { courses: Course[] }) {
+export function CoursesClient({ courses }) {
   const [query, setQuery] = useState("");
 
   const filtered = useMemo(() => {

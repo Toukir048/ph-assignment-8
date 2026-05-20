@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { FormEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { authClient } from "@/lib/auth-client";
 import { useAuth } from "@/components/AuthProvider";
@@ -17,7 +17,7 @@ export default function UpdateProfilePage() {
     }
   }, [loading, router, user]);
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (!user) return;
     setSaving(true);

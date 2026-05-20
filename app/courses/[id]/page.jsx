@@ -8,8 +8,6 @@ export function generateStaticParams() {
 
 export default async function CourseDetailsPage({
   params
-}: {
-  params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
   const course = courses.find((item) => item.id === Number(id));
