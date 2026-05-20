@@ -50,6 +50,20 @@ export default function MyProfilePage() {
             Update
           </Link>
         </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          <div className="rounded-lg bg-base-100 p-4 text-center">
+            <p className="text-2xl font-black text-primary">3</p>
+            <p className="text-xs text-ink/60">Saved courses</p>
+          </div>
+          <div className="rounded-lg bg-base-100 p-4 text-center">
+            <p className="text-2xl font-black text-secondary">12h</p>
+            <p className="text-xs text-ink/60">Learning goal</p>
+          </div>
+          <div className="rounded-lg bg-base-100 p-4 text-center">
+            <p className="text-2xl font-black text-amber-500">Beginner</p>
+            <p className="text-xs text-ink/60">Current level</p>
+          </div>
+        </div>
       </div>
     </section>
   );
