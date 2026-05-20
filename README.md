@@ -45,12 +45,13 @@ GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
 ```
 
-For Google login, add OAuth credentials from Google Cloud Console. Email/password forms include a demo fallback so reviewers can still navigate the protected UI if external auth configuration is unavailable.
+For Google login, add OAuth credentials from Google Cloud Console. Email/password authentication uses BetterAuth with the local SQLite database during development.
 
 ## Run Locally
 
 ```bash
 npm install
+npm run auth:migrate
 npm run dev
 ```
 

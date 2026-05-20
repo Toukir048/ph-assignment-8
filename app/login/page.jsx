@@ -12,7 +12,7 @@ export default function LoginPage() {
   const router = useRouter();
   const params = useSearchParams();
   const redirect = params.get("redirect") || "/";
-  const { refreshSession, setFallbackUser } = useAuth();
+  const { refreshSession } = useAuth();
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
@@ -35,13 +35,7 @@ export default function LoginPage() {
       toast.success("Welcome back to SkillSphere");
       router.push(redirect);
     } catch (error) {
-      setFallbackUser({
-        name: email.split("@")[0] || "SkillSphere Learner",
-        email,
-        image: null
-      });
-      toast.success("Demo login successful");
-      router.push(redirect);
+      toast.error(error.message || "Login failed. Please check your email and password.");
     } finally {
       setLoading(false);
     }
@@ -96,8 +90,8 @@ export default function LoginPage() {
               Login to SkillSphere
             </h1>
             <p className="mt-3 text-sm leading-6 text-ink/60">
-              Use your email and password to continue. Demo mode is available
-              when auth keys are not configured.
+              Use your email and password to continue your SkillSphere learning
+              journey.
             </p>
 
             <form className="mt-8 space-y-5" onSubmit={handleSubmit}>

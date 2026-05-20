@@ -7,7 +7,7 @@ import { authClient } from "@/lib/auth-client";
 import { useAuth } from "@/components/AuthProvider";
 
 export default function UpdateProfilePage() {
-  const { user, loading, refreshSession, setFallbackUser } = useAuth();
+  const { user, loading, refreshSession, setUser } = useAuth();
   const router = useRouter();
   const [saving, setSaving] = useState(false);
 
@@ -31,8 +31,8 @@ export default function UpdateProfilePage() {
       await refreshSession();
       toast.success("Profile updated");
     } catch {
-      setFallbackUser({ ...user, name, image });
-      toast.success("Demo profile updated");
+      setUser({ ...user, name, image });
+      toast.error("Could not update the server profile. Showing the latest form values locally.");
     } finally {
       setSaving(false);
       router.push("/my-profile");

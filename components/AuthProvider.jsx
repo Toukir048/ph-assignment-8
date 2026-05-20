@@ -5,21 +5,9 @@ import { authClient } from "@/lib/auth-client";
 
 const AuthContext = createContext(null);
 
-const fallbackKey = "skillsphere-demo-user";
-
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  const setFallbackUser = (nextUser) => {
-    setUser(nextUser);
-    if (typeof window === "undefined") return;
-    if (nextUser) {
-      localStorage.setItem(fallbackKey, JSON.stringify(nextUser));
-    } else {
-      localStorage.removeItem(fallbackKey);
-    }
-  };
 
   const refreshSession = async () => {
     setLoading(true);
@@ -33,11 +21,9 @@ export function AuthProvider({ children }) {
         });
         return;
       }
-      const stored = localStorage.getItem(fallbackKey);
-      setUser(stored ? JSON.parse(stored) : null);
+      setUser(null);
     } catch {
-      const stored = localStorage.getItem(fallbackKey);
-      setUser(stored ? JSON.parse(stored) : null);
+      setUser(null);
     } finally {
       setLoading(false);
     }
@@ -48,7 +34,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   const value = useMemo(
-    () => ({ user, loading, refreshSession, setFallbackUser }),
+    () => ({ user, loading, refreshSession, setUser }),
     [user, loading]
   );
 

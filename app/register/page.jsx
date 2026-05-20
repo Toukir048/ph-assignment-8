@@ -10,7 +10,6 @@ import { useAuth } from "@/components/AuthProvider";
 
 export default function RegisterPage() {
   const router = useRouter();
-  const { setFallbackUser } = useAuth();
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
@@ -34,9 +33,7 @@ export default function RegisterPage() {
       toast.success("Registration successful. Please login.");
       router.push("/login");
     } catch (error) {
-      setFallbackUser({ name, email, image });
-      toast.success("Demo registration created. Please login anytime.");
-      router.push("/login");
+      toast.error(error.message || "Registration failed. Please try again.");
     } finally {
       setLoading(false);
     }

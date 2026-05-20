@@ -21,13 +21,13 @@ const isActiveRoute = (pathname, href) => {
 export function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
-  const { user, loading, setFallbackUser } = useAuth();
+  const { user, loading, setUser } = useAuth();
 
   const logout = async () => {
     try {
       await authClient.signOut();
     } finally {
-      setFallbackUser(null);
+      setUser(null);
       toast.success("Logged out successfully");
       router.push("/login");
     }
