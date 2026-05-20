@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { BookOpen, LogOut, Menu, UserRound } from "lucide-react";
@@ -83,7 +82,11 @@ export function Navbar() {
               >
                 <div className="h-9 w-9 rounded-full bg-secondary/20">
                   {user.image ? (
-                    <Image src={user.image} alt={user.name} width={36} height={36} />
+                    <img
+                      src={user.image}
+                      alt={user.name}
+                      className="h-full w-full object-cover"
+                    />
                   ) : (
                     <UserRound className="m-2 text-secondary" size={20} />
                   )}

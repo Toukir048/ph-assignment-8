@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -31,7 +30,11 @@ export default function MyProfilePage() {
         <div className="flex flex-col items-center gap-5 text-center sm:flex-row sm:text-left">
           <div className="relative grid h-28 w-28 place-items-center overflow-hidden rounded-full bg-secondary/15">
             {user.image ? (
-              <Image src={user.image} alt={user.name} fill className="object-cover" />
+              <img
+                src={user.image}
+                alt={user.name}
+                className="h-full w-full object-cover"
+              />
             ) : (
               <UserRound className="text-secondary" size={48} />
             )}
