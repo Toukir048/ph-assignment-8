@@ -60,6 +60,14 @@ Open `http://localhost:3000`.
 
 Deploy on Vercel or another Next.js host. Add all environment variables in the hosting dashboard. App Router routes are handled by Next.js, so direct reloads on nested routes such as `/courses/1` and `/my-profile` do not crash.
 
+## Assignment Checklist
+
+- Add GitHub repository link below.
+- Add live deployment link below.
+- Configure Google OAuth credentials before final hosting.
+- Keep at least 10 meaningful commits in the submitted repository.
+- Test responsive layouts on mobile, tablet, and desktop widths.
+
 ## Submission
 
 Github Repo Link:
