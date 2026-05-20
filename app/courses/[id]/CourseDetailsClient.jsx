@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { CheckCircle2, Clock, Signal, Star } from "lucide-react";
+import { toast } from "sonner";
 import { useAuth } from "@/components/AuthProvider";
 
 export function CourseDetailsClient({ course }) {
@@ -51,7 +52,12 @@ export function CourseDetailsClient({ course }) {
             </div>
           </div>
           <p className="font-semibold text-ink">Instructor: {course.instructor}</p>
-          <button className="btn btn-primary">Enroll Now</button>
+          <button
+            className="btn btn-primary"
+            onClick={() => toast.success(`Enrollment started for ${course.title}`)}
+          >
+            Enroll Now
+          </button>
         </div>
       </div>
 
