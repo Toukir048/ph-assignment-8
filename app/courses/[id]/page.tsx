@@ -6,8 +6,13 @@ export function generateStaticParams() {
   return courses.map((course) => ({ id: String(course.id) }));
 }
 
-export default function CourseDetailsPage({ params }: { params: { id: string } }) {
-  const course = courses.find((item) => item.id === Number(params.id));
+export default async function CourseDetailsPage({
+  params
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const course = courses.find((item) => item.id === Number(id));
 
   if (!course) {
     notFound();
