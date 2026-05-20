@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "title": "Complete Web Development Bootcamp",
+    "instructor": "John Doe",
+    "duration": "20 hours",
+    "rating": 4.9,
+    "level": "Beginner",
+    "description": "Learn HTML, CSS, JavaScript, React, Next.js, APIs, and deployment through guided real-world projects.",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    "category": "Development",
+    "lessons": [
+      "Frontend foundations",
+      "JavaScript problem solving",
+      "React component architecture",
+      "Next.js App Router",
+      "API integration and deployment"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "UI/UX Design Systems Mastery",
+    "instructor": "Maya Chen",
+    "duration": "14 hours",
+    "rating": 4.8,
+    "level": "Intermediate",
+    "description": "Create product-ready interfaces, reusable components, and polished interaction flows with modern design thinking.",
+    "image": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1200&q=80",
+    "category": "Design",
+    "lessons": [
+      "User research essentials",
+      "Wireframes and prototypes",
+      "Design tokens",
+      "Responsive layouts",
+      "Usability testing"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Digital Marketing Growth Lab",
+    "instructor": "Rafi Ahmed",
+    "duration": "12 hours",
+    "rating": 4.7,
+    "level": "Beginner",
+    "description": "Plan high-converting campaigns across SEO, social media, analytics, and content funnels.",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    "category": "Marketing",
+    "lessons": [
+      "Audience research",
+      "SEO fundamentals",
+      "Content calendars",
+      "Paid campaign basics",
+      "Analytics reporting"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Data Analytics with Python",
+    "instructor": "Elena Torres",
+    "duration": "18 hours",
+    "rating": 4.6,
+    "level": "Intermediate",
+    "description": "Turn messy datasets into useful decisions with Python, pandas, visualization, and storytelling.",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    "category": "Data",
+    "lessons": [
+      "Python data workflow",
+      "Cleaning with pandas",
+      "Exploratory analysis",
+      "Charts and dashboards",
+      "Insight presentations"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Brand Storytelling for Creators",
+    "instructor": "Nora Williams",
+    "duration": "9 hours",
+    "rating": 4.5,
+    "level": "Beginner",
+    "description": "Build a memorable creator brand with a clear voice, visual direction, and content strategy.",
+    "image": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1200&q=80",
+    "category": "Business",
+    "lessons": [
+      "Brand positioning",
+      "Voice and tone",
+      "Content pillars",
+      "Visual consistency",
+      "Launch planning"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "AI Productivity for Professionals",
+    "instructor": "Aisha Rahman",
+    "duration": "10 hours",
+    "rating": 4.9,
+    "level": "Advanced",
+    "description": "Use AI tools responsibly to research faster, automate routines, and improve knowledge work.",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+    "category": "Productivity",
+    "lessons": [
+      "Prompt strategy",
+      "Research workflows",
+      "Automation maps",
+      "AI writing review",
+      "Responsible usage"
+    ]
+  }
+]

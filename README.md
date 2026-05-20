@@ -31,7 +31,6 @@ Add your deployed link here after hosting:
 - `sonner`
 - `lucide-react`
 - `animate.css`
-- `animate.css`
 
 ## Environment Variables
 
