@@ -50,11 +50,19 @@ For Google login, add OAuth credentials from Google Cloud Console. Email/passwor
 
 ```bash
 npm install
-npm run auth:migrate
-npm run dev
+npm run dev:local
 ```
 
 Open `http://localhost:3000`.
+
+Keep the terminal open while the website is running. If you close the terminal,
+the local server will stop.
+
+For a production-style local preview:
+
+```bash
+npm run preview
+```
 
 ## Deployment Notes
 
