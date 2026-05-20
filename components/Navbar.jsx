@@ -14,6 +14,11 @@ const links = [
   { href: "/my-profile", label: "My Profile" }
 ];
 
+const isActiveRoute = (pathname, href) => {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+};
+
 export function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
@@ -34,7 +39,7 @@ export function Navbar() {
       {links.map((link) => (
         <li key={link.href}>
           <Link
-            className={pathname === link.href ? "font-semibold text-primary" : ""}
+            className={isActiveRoute(pathname, link.href) ? "font-semibold text-primary" : ""}
             href={link.href}
           >
             {link.label}
