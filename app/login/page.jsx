@@ -62,6 +62,10 @@ export default function LoginPage() {
     <section className="page-shell grid min-h-[70vh] place-items-center">
       <div className="w-full max-w-md rounded-lg bg-white p-8 shadow-soft">
         <h1 className="text-3xl font-black text-ink">Login</h1>
+        <p className="mt-2 text-sm text-ink/60">
+          Use any email and an 8 character password to enter demo mode if auth
+          keys are not configured.
+        </p>
         <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
           <label className="form-control">
             <span className="label-text">Email</span>
