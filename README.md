@@ -4,9 +4,7 @@ SkillSphere is a modern online learning platform built for the category-A8-Orang
 
 ## Live URL
 
-Add your deployed link here after hosting:
-
-`https://your-skillsphere-live-url.vercel.app`
+`https://ph-assignment-8-wheat.vercel.app`
 
 ## Key Features
 
@@ -44,7 +42,27 @@ GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
 ```
 
-For Google login, add OAuth credentials from Google Cloud Console. Email/password authentication uses BetterAuth with the local SQLite database during development.
+For Google login, add OAuth credentials from Google Cloud Console and include
+this authorized redirect URI:
+
+```text
+http://localhost:3000/api/auth/callback/google
+```
+
+For deployment, also add your production callback URL, for example:
+
+```text
+https://ph-assignment-8-wheat.vercel.app/api/auth/callback/google
+```
+
+If you open the app with the Network URL shown by Next.js, add that callback
+URL too, for example:
+
+```text
+http://192.168.0.100:3000/api/auth/callback/google
+```
+
+Email/password authentication uses BetterAuth with the local SQLite database during development.
 
 ## Run Locally
 
@@ -66,7 +84,16 @@ npm run preview
 
 ## Deployment Notes
 
-Deploy on Vercel or another Next.js host. Add all environment variables in the hosting dashboard. App Router routes are handled by Next.js, so direct reloads on nested routes such as `/courses/1` and `/my-profile` do not crash.
+Deploy on Vercel or another Next.js host. Add all environment variables in the hosting dashboard. For this deployment, use:
+
+```env
+BETTER_AUTH_URL=https://ph-assignment-8-wheat.vercel.app
+NEXT_PUBLIC_APP_URL=https://ph-assignment-8-wheat.vercel.app
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+```
+
+App Router routes are handled by Next.js, so direct reloads on nested routes such as `/courses/1` and `/my-profile` do not crash.
 
 ## Assignment Checklist
 
@@ -80,4 +107,4 @@ Deploy on Vercel or another Next.js host. Add all environment variables in the h
 
 Github Repo Link:
 
-Live Link:
+Live Link: https://ph-assignment-8-wheat.vercel.app

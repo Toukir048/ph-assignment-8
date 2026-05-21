@@ -7,6 +7,7 @@ import { BookOpen, LockKeyhole, Mail, ShieldCheck, Sparkles } from "lucide-react
 import { toast } from "sonner";
 import { authClient } from "@/lib/auth-client";
 import { useAuth } from "@/components/AuthProvider";
+import { continueWithGoogle } from "@/lib/google-login";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -38,18 +39,6 @@ export default function LoginPage() {
       toast.error(error.message || "Login failed. Please check your email and password.");
     } finally {
       setLoading(false);
-    }
-  };
-
-  const googleLogin = async () => {
-    try {
-      await authClient.signIn.social({
-        provider: "google",
-        callbackURL: "/",
-        errorCallbackURL: "/login"
-      });
-    } catch {
-      toast.error("Google login needs Google OAuth environment variables.");
     }
   };
 
@@ -129,7 +118,10 @@ export default function LoginPage() {
 
             <div className="divider text-xs text-ink/45">OR</div>
 
-            <button className="btn btn-outline btn-block" onClick={googleLogin}>
+            <button
+              className="btn btn-outline btn-block"
+              onClick={() => continueWithGoogle("/login")}
+            >
               <span className="grid h-6 w-6 place-items-center rounded-full bg-white font-black text-primary shadow-sm">
                 G
               </span>

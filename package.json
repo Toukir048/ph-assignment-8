@@ -4,8 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "dev:local": "npm run auth:migrate && next dev",
+    "dev": "npm run auth:migrate && next dev",
+    "dev:local": "npm run dev",
     "build": "next build",
     "auth:migrate": "node scripts/migrate-auth.mjs",
     "preview": "npm run auth:migrate && npm run build && next start",
