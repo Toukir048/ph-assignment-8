@@ -39,6 +39,8 @@ BETTER_AUTH_SECRET=replace-with-a-32-character-random-secret
 BETTER_AUTH_URL=http://localhost:3000
 NEXT_PUBLIC_APP_URL=http://localhost:3000
 DATABASE_URL=
+# Or use Vercel's default Postgres variable:
+# POSTGRES_URL=
 GOOGLE_CLIENT_ID=
 GOOGLE_CLIENT_SECRET=
 ```
@@ -91,6 +93,7 @@ Deploy on Vercel or another Next.js host. Add all environment variables in the h
 BETTER_AUTH_URL=https://ph-assignment-8-wheat.vercel.app
 NEXT_PUBLIC_APP_URL=https://ph-assignment-8-wheat.vercel.app
 DATABASE_URL=your-vercel-postgres-or-neon-database-url
+# Or POSTGRES_URL=your-vercel-postgres-url
 GOOGLE_CLIENT_ID=your-google-client-id
 GOOGLE_CLIENT_SECRET=your-google-client-secret
 ```
@@ -98,8 +101,9 @@ GOOGLE_CLIENT_SECRET=your-google-client-secret
 App Router routes are handled by Next.js, so direct reloads on nested routes such as `/courses/1` and `/my-profile` do not crash.
 
 For Vercel, create a Postgres database from the Vercel dashboard or Neon, then
-copy its connection string into `DATABASE_URL`. The build script runs the Better
-Auth migration before `next build`, so the auth tables are created during deploy.
+copy its connection string into `DATABASE_URL` or use Vercel's generated
+`POSTGRES_URL`. The build script runs the Better Auth migration before
+`next build`, so the auth tables are created during deploy.
 
 ## Assignment Checklist
 
