@@ -6,6 +6,7 @@ import { useState } from "react";
 import { BookOpen, LogOut, Menu, UserRound } from "lucide-react";
 import { toast } from "sonner";
 import { authClient } from "@/lib/auth-client";
+import { clearLocalSession } from "@/lib/local-auth";
 import { useAuth } from "@/components/AuthProvider";
 
 const links = [
@@ -29,6 +30,7 @@ export function Navbar() {
     try {
       await authClient.signOut();
     } finally {
+      clearLocalSession();
       setUser(null);
       toast.success("Logged out successfully");
       router.push("/login");

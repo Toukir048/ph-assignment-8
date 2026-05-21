@@ -6,6 +6,7 @@ import { useState } from "react";
 import { BookOpen, LockKeyhole, Mail, ShieldCheck, Sparkles } from "lucide-react";
 import { toast } from "sonner";
 import { authClient } from "@/lib/auth-client";
+import { loginLocalUser } from "@/lib/local-auth";
 import { useAuth } from "@/components/AuthProvider";
 import { continueWithGoogle } from "@/lib/google-login";
 
@@ -36,7 +37,14 @@ export default function LoginPage() {
       toast.success("Welcome back to SkillSphere");
       router.push(redirect);
     } catch (error) {
-      toast.error(error.message || "Login failed. Please check your email and password.");
+      try {
+        const localUser = loginLocalUser({ email, password });
+        await refreshSession();
+        toast.success(`Welcome back, ${localUser.name}`);
+        router.push(redirect);
+      } catch {
+        toast.error(error.message || "Login failed. Please check your email and password.");
+      }
     } finally {
       setLoading(false);
     }

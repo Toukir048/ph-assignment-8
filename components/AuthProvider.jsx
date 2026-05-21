@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { authClient } from "@/lib/auth-client";
+import { getLocalSession } from "@/lib/local-auth";
 
 const AuthContext = createContext(null);
 
@@ -21,9 +22,9 @@ export function AuthProvider({ children }) {
         });
         return;
       }
-      setUser(null);
+      setUser(getLocalSession());
     } catch {
-      setUser(null);
+      setUser(getLocalSession());
     } finally {
       setLoading(false);
     }

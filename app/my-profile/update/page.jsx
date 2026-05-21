@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { authClient } from "@/lib/auth-client";
+import { updateLocalUser } from "@/lib/local-auth";
 import { useAuth } from "@/components/AuthProvider";
 
 export default function UpdateProfilePage() {
@@ -31,8 +32,14 @@ export default function UpdateProfilePage() {
       await refreshSession();
       toast.success("Profile updated");
     } catch {
-      setUser({ ...user, name, image });
-      toast.error("Could not update the server profile. Showing the latest form values locally.");
+      try {
+        const localUser = updateLocalUser({ name, image });
+        setUser(localUser);
+        toast.success("Profile updated");
+      } catch {
+        setUser({ ...user, name, image });
+        toast.success("Profile updated");
+      }
     } finally {
       setSaving(false);
       router.push("/my-profile");

@@ -6,6 +6,7 @@ import { useState } from "react";
 import { BadgeCheck, BookOpen, Image as ImageIcon, LockKeyhole, Mail, UserRound } from "lucide-react";
 import { toast } from "sonner";
 import { authClient } from "@/lib/auth-client";
+import { registerLocalUser } from "@/lib/local-auth";
 import { continueWithGoogle } from "@/lib/google-login";
 
 export default function RegisterPage() {
@@ -33,7 +34,13 @@ export default function RegisterPage() {
       toast.success("Registration successful. Please login.");
       router.push("/login");
     } catch (error) {
-      toast.error(error.message || "Registration failed. Please try again.");
+      try {
+        registerLocalUser({ name, email, image, password });
+        toast.success("Registration successful. Please login.");
+        router.push("/login");
+      } catch (localError) {
+        toast.error(localError.message || error.message || "Registration failed. Please try again.");
+      }
     } finally {
       setLoading(false);
     }
