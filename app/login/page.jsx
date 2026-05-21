@@ -120,7 +120,7 @@ export default function LoginPage() {
 
             <button
               className="btn btn-outline btn-block"
-              onClick={() => continueWithGoogle("/login")}
+              onClick={() => continueWithGoogle("/login", redirect)}
             >
               <span className="grid h-6 w-6 place-items-center rounded-full bg-white font-black text-primary shadow-sm">
                 G
