@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 import { BookOpen, LogOut, Menu, UserRound } from "lucide-react";
 import { toast } from "sonner";
 import { authClient } from "@/lib/auth-client";
@@ -22,6 +23,7 @@ export function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
   const { user, loading, setUser } = useAuth();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const logout = async () => {
     try {
@@ -40,6 +42,7 @@ export function Navbar() {
           <Link
             className={isActiveRoute(pathname, link.href) ? "font-semibold text-primary" : ""}
             href={link.href}
+            onClick={() => setMobileMenuOpen(false)}
           >
             {link.label}
           </Link>
@@ -53,12 +56,20 @@ export function Navbar() {
       <div className="navbar mx-auto max-w-7xl px-4">
         <div className="navbar-start">
           <div className="dropdown">
-            <button aria-label="Open menu" className="btn btn-ghost lg:hidden">
+            <button
+              aria-expanded={mobileMenuOpen}
+              aria-label="Toggle menu"
+              className="btn btn-ghost lg:hidden"
+              onClick={() => setMobileMenuOpen((open) => !open)}
+              type="button"
+            >
               <Menu size={22} />
             </button>
-            <ul className="menu dropdown-content z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow">
-              {navLinks}
-            </ul>
+            {mobileMenuOpen ? (
+              <ul className="menu dropdown-content z-[60] mt-3 w-52 rounded-box bg-base-100 p-2 shadow lg:hidden">
+                {navLinks}
+              </ul>
+            ) : null}
           </div>
           <Link className="flex items-center gap-2 text-xl font-black text-ink" href="/">
             <span className="grid h-10 w-10 place-items-center rounded-lg bg-primary text-white">
